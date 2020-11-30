@@ -5,8 +5,19 @@ import android.app.Activity;
 import java.util.ArrayList;
 
 public class Article {
-    private static final String DEV_HEADER = "lorem ipsum";
-    private static final String DEV_TEXT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+    public static final String DEV_HEADER = "lorem ipsum";
+    public static final String SHORT_DEV_TEXT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+            "Proin consectetur ligula quis purus aliquam, in cursus nibh mollis. Curabitur dictum, " +
+            "elit sed tincidunt euismod, purus ligula vehicula erat, laoreet facilisis orci " +
+            "ante eget dui. Phasellus ex quam, egestas vel nisl in, convallis ultricies ex. Phasellus " +
+            "at volutpat enim. Fusce id auctor quam. Ut pulvinar laoreet eros in venenatis. Mauris " +
+            "porta, neque id auctor mollis, odio est pretium risus, quis feugiat neque erat in augue. " +
+            "Nam felis nunc, fringilla non iaculis sit amet, posuere id augue. Duis vel tristique ipsum. " +
+            "Donec viverra metus sed pulvinar tempor. Donec eleifend dui vitae mattis porttitor. " +
+            "Nam eu facilisis libero. Proin in rutrum nulla, non malesuada nibh. Maecenas convallis " +
+            "fringilla dignissim. Nunc pharetra iaculis libero, ut porta diam malesuada a. Nunc " +
+            "sollicitudin tincidunt lorem.\n\n";
+    public static final String DEV_TEXT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
             "Proin consectetur ligula quis purus aliquam, in cursus nibh mollis. Curabitur dictum, " +
             "elit sed tincidunt euismod, purus ligula vehicula erat, laoreet facilisis orci " +
             "ante eget dui. Phasellus ex quam, egestas vel nisl in, convallis ultricies ex. Phasellus " +
@@ -45,7 +56,7 @@ public class Article {
 
     public Article() {
         mHeader = DEV_HEADER;
-        mText = DEV_TEXT;
+        mText = SHORT_DEV_TEXT;
         mImageResource = 0;
         hasImage = false;
     }
