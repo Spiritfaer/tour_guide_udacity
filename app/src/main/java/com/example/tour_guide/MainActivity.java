@@ -4,33 +4,41 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+    private final ArrayList<Article> articles;
+
+    {
+        articles = new ArrayList<>();
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.item_list);
 
-        testView();
-    }
-
-    private void testView() {
-        Article article = initOneItem();
-        TextView textHeader = findViewById(R.id.item_header);
-        TextView textText = findViewById(R.id.item_text);
-        ImageView imageView = findViewById(R.id.item_image);
-
-
-        textHeader.setText(article.getHeader());
-        textText.setText(article.getText());
-        if (article.hasImage()) {
-            imageView.setImageResource(article.getImageResource());
-        }
-    }
-
-    private Article initOneItem() {
-        return new Article(getString(R.string.example_header), getString(R.string.example_text), R.drawable.coat_of_arms_of_dnipro);
+        //find a listView to fills with our articles
+        ListView listView = findViewById(R.id.item_list_id);
+        //Create our adapter
+        ArticleAdapter adapter = new ArticleAdapter(this, R.layout.item, articles);
+        //Link listView and adapter
+        listView.setAdapter(adapter);
     }
 }
