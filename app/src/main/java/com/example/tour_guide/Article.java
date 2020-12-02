@@ -1,10 +1,7 @@
 package com.example.tour_guide;
 
-import android.app.Activity;
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.util.ArrayList;
 
 public class Article implements Parcelable {
     public static final String DEV_HEADER = "lorem ipsum";
