@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -112,9 +113,11 @@ public class ParkFragment extends Fragment {
 
         if (getActivity() != null) {
             //Create our adapter
-            ArticleAdapter adapter = new ArticleAdapter(getActivity(), R.layout.item, articles);
+            ArticleAdapter adapter = new ArticleAdapter(getActivity(), R.layout.short_item, articles);
             //Link listView and adapter
             listView.setAdapter(adapter);
+        } else {
+            Log.i("ParkActivity", "getActivity return null!");
         }
 
         return rootView;

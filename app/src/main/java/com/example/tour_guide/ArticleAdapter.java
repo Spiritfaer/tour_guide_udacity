@@ -26,21 +26,21 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
         //We should create view for show
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.short_item, parent, false);
         }
 
         //Set header for our article
-        TextView itemHeader = convertView.findViewById(R.id.item_header);
+        TextView itemHeader = convertView.findViewById(R.id.short_item_header);
         itemHeader.setText(article.getHeader());
 
         //Set image for our article
-        ImageView itemImage = convertView.findViewById(R.id.item_image);
+        ImageView itemImage = convertView.findViewById(R.id.short_item_image);
         if (article.hasImage()) {
             itemImage.setImageResource(article.getImageResource());
         }
 
         //set text for our article, but only first 256 characters
-        TextView itemText = convertView.findViewById(R.id.item_text);
+        TextView itemText = convertView.findViewById(R.id.short_item_text);
         itemText.setText(article.getSummeryText());
 
         //return filling view
