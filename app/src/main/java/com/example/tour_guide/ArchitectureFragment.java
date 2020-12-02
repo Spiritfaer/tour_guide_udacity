@@ -1,9 +1,12 @@
 package com.example.tour_guide;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
@@ -90,16 +93,38 @@ public class ArchitectureFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.item_list, container, false);
 
-        //find a listView to fills with our articles
+        //link adapter
+        addArticleAdapter(rootView);
+        //link lister
+        addArticleListener(rootView);
+
+        return rootView;
+    }
+
+    private void addArticleAdapter(View rootView) {
         ListView listView = rootView.findViewById(R.id.item_list_id);
 
         if (getActivity() != null) {
             //Create our adapter
-            ArticleAdapter adapter = new ArticleAdapter(getActivity(), R.layout.item, articles);
+            ArticleAdapter adapter = new ArticleAdapter(getActivity(), R.layout.short_item, articles);
             //Link listView and adapter
             listView.setAdapter(adapter);
+        } else {
+            Log.i("ArchitectureFragment", "getActivity return null!");
         }
+    }
 
-        return rootView;
+    private void addArticleListener(View rootView) {
+        ListView listView = rootView.findViewById(R.id.item_list_id);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), ArticleActivity.class);
+                intent.putExtra("Article", articles.get(position));
+                Log.i("ArchitectureFragment", "Tap " + position);
+                startActivity(intent);
+            }
+        });
     }
 }
