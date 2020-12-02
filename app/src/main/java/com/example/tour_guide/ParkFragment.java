@@ -1,5 +1,6 @@
 package com.example.tour_guide;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -105,10 +107,20 @@ public class ParkFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+        //create rootView for this fragment
         View rootView = inflater.inflate(R.layout.item_list, container, false);
 
-        //find a listView to fills with our articles
+        //link adapter
+        addArticleAdapter(rootView);
+        //link lister
+        addArticleListener(rootView);
+
+
+        return rootView;
+    }
+
+    private void addArticleAdapter(View rootView) {
         ListView listView = rootView.findViewById(R.id.item_list_id);
 
         if (getActivity() != null) {
@@ -119,7 +131,19 @@ public class ParkFragment extends Fragment {
         } else {
             Log.i("ParkActivity", "getActivity return null!");
         }
+    }
 
-        return rootView;
+    private void addArticleListener(View rootView) {
+        ListView listView = rootView.findViewById(R.id.item_list_id);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), ArticleActivity.class);
+                intent.putExtra("Article", articles.get(position));
+                Log.i("ParkFrgment", "Tap " + position);
+                startActivity(intent);
+            }
+        });
     }
 }
