@@ -31,6 +31,7 @@
             android:scaleType="fitXY"
             android:adjustViewBounds="true"
             android:src="@drawable/no_image"
+            android:layout_marginBottom="16dp"
             android:contentDescription="@string/article_image_description"/>
             <TextView
                 android:id="@+id/short_item_text"

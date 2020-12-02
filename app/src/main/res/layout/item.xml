@@ -6,46 +6,37 @@
     android:orientation="vertical"
     android:id="@+id/item">
 
-    <TextView
-        android:id="@+id/item_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAllCaps="true"
-        android:gravity="center"
-        android:fontFamily="sans-serif"
-        android:layout_margin="16dp"
-        android:textSize="24sp"
-        tools:text="Simple text"/>
+
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/item_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/no_image"
-                    android:contentDescription="@string/article_image_description"/>
-            </FrameLayout>
-
-            <FrameLayout
+            <TextView
+                android:id="@+id/item_header"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="3">
-
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:gravity="center"
+                android:fontFamily="sans-serif"
+                android:layout_margin="16dp"
+                android:textSize="24sp"
+                tools:text="Simple text"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/item_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxWidth="250dp"
+                android:maxHeight="250dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/no_image"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/article_image_description"/>
                 <TextView
                     android:id="@+id/item_text"
                     android:layout_width="match_parent"
@@ -59,7 +50,6 @@
                     android:scrollbars = "vertical"
                     android:textColor="@color/black"
                     />
-            </FrameLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
