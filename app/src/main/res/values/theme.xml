@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- My application theme (update with material designer) -->
+    <style name="TourGuideCustomTheme" parent="Theme.TourGuide">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue_grey_500</item>
+        <item name="colorPrimaryVariant">@color/blue_grey_500_dark</item>
+        <item name="colorOnPrimary">@color/blue_grey_500_light</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/orange_400</item>
+        <item name="colorSecondaryVariant">@color/orange_400_dark</item>
+        <item name="colorOnSecondary">@color/orange_400_light</item>
+
+    </style>
+</resources>
