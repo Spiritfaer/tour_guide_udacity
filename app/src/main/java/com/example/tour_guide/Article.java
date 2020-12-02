@@ -62,17 +62,17 @@ public class Article {
     }
 
     public Article(String title, String text) {
-        mHeader = title;
-        mText = text;
+        mHeader = title.trim();
+        mText = text.trim();
         mImageResource = 0;
         hasImage = false;
     }
 
     public Article(String title, String text, int imageResource) {
-        mHeader = title;
-        mText = text;
+        mHeader = title.trim();
+        mText = text.trim();
         mImageResource = imageResource;
-        hasImage = true;
+        hasImage = imageResource != 0;
     }
 
     public String getHeader() {
@@ -81,6 +81,10 @@ public class Article {
 
     public String getText() {
         return mText;
+    }
+
+    public String getSummeryText() {
+        return mText.split("\n")[0];
     }
 
     public int getImageResource() {

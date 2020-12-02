@@ -39,9 +39,9 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
             itemImage.setImageResource(article.getImageResource());
         }
 
-        //set text for our article
+        //set text for our article, but only first 256 characters
         TextView itemText = convertView.findViewById(R.id.item_text);
-        itemText.setText(article.getText());
+        itemText.setText(article.getSummeryText());
 
         //return filling view
         return convertView;
