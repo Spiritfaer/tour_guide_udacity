@@ -1,10 +1,12 @@
 package com.example.tour_guide;
 
 import android.app.Activity;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-public class Article {
+public class Article implements Parcelable {
     public static final String DEV_HEADER = "lorem ipsum";
     public static final String SHORT_DEV_TEXT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
             "Proin consectetur ligula quis purus aliquam, in cursus nibh mollis. Curabitur dictum, " +
@@ -75,6 +77,15 @@ public class Article {
         hasImage = imageResource != 0;
     }
 
+    public Article(Parcel  in) {
+        String[] data = new String[4];
+        in.readStringArray(data);
+        mHeader = data[0];
+        mText = data[1];
+        mImageResource = Integer.parseInt(data[2]);
+        hasImage = Boolean.parseBoolean(data[3]);
+    }
+
     public String getHeader() {
         return mHeader;
     }
@@ -93,4 +104,32 @@ public class Article {
     public boolean hasImage() {
         return hasImage;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeStringArray(new String[] {
+                mHeader,
+                mText,
+                String.valueOf(mImageResource),
+                String.valueOf(hasImage)
+        });
+    }
+
+    public static final Parcelable.Creator<Article> CREATOR = new Parcelable.Creator<Article>() {
+
+        @Override
+        public Article createFromParcel(Parcel source) {
+            return new Article(source);
+        }
+
+        @Override
+        public Article[] newArray(int size) {
+            return new Article[size];
+        }
+    };
 }
