@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
         ViewPager view = findViewById(R.id.view_pager);
         CategoriesFragmentPagerAdapter adapter = new CategoriesFragmentPagerAdapter(getSupportFragmentManager());
         view.setAdapter(adapter);
-
-        new Article("sdsdd","sdsdsdsd", R.drawable.no_image);
     }
 
     public void save(View view, ArrayList<Article> articles){
