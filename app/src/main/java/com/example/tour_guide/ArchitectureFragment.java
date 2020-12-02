@@ -92,18 +92,15 @@ public class ArchitectureFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.item_list, container, false);
-
         //link adapter
         addArticleAdapter(rootView);
         //link lister
         addArticleListener(rootView);
-
         return rootView;
     }
 
     private void addArticleAdapter(View rootView) {
         ListView listView = rootView.findViewById(R.id.item_list_id);
-
         if (getActivity() != null) {
             //Create our adapter
             ArticleAdapter adapter = new ArticleAdapter(getActivity(), R.layout.short_item, articles);
@@ -116,13 +113,11 @@ public class ArchitectureFragment extends Fragment {
 
     private void addArticleListener(View rootView) {
         ListView listView = rootView.findViewById(R.id.item_list_id);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), ArticleActivity.class);
                 intent.putExtra("Article", articles.get(position));
-                Log.i("ArchitectureFragment", "Tap " + position);
                 startActivity(intent);
             }
         });
