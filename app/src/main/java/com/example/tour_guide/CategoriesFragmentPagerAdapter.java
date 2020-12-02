@@ -1,13 +1,18 @@
 package com.example.tour_guide;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 public class CategoriesFragmentPagerAdapter extends FragmentPagerAdapter {
-    public CategoriesFragmentPagerAdapter(@NonNull FragmentManager fm) {
+
+    private final String[] mTabTitle;
+
+    public CategoriesFragmentPagerAdapter(@NonNull FragmentManager fm, String[] tabTitle) {
         super(fm);
+        mTabTitle = tabTitle;
     }
 
     @NonNull
@@ -25,5 +30,11 @@ public class CategoriesFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return 2;
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mTabTitle[position];
     }
 }
